@@ -3,11 +3,76 @@
 	<head> 
 		<title>LASTNAME Chapter14HandsOnExercise</title> 
 		<meta charset="utf-8"> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
 		<style>
 		
+            input { display: block;
+                    margin-bottom: 1em;}
+
+            label { float: left;
+                    width: 5em;
+                    padding-right: 1em;
+                    text-align: right; }
+
+            #submit {margin-left: 4em; }
+            #details {display: none;}
+            .fotorama {width: 300px;
+                        height: 300px;}
+            body {margin-left: 50px;}
 		</style>
 	</head> 
 <body> 
-
+    <h1>Questionnaire</h1>
+    <p>Please complete all fields.</p>
+    
+<div id="submit">
+    <form method="post"
+          action="http://webdevbasics.net/scripts/demo.php"
+          onsubmit="return validateForm();">
+    <label for="userName">Name:</label>
+    <input type="text" name="userName" id="userName">
+    <label for="userAge">Age:</label>
+    <input type="text" name="userAge" id="userAge">
+    <label for="userCity">City:</label>
+    <input type="text" name="userCity" id="userCity">
+    <input type="submit" value="Send information" id="submit">
+    </form>
+    <br>
+    <br>
+    
+</div>
+    
+    <script>
+    function validateForm() {
+        if(document.forms[0].userName.value == ""){
+            alert("Name field cannot be empty");
+            return false;}}
+        if(document.forms[0].userCity.value == ""){
+            alert("City field cannot be empty");
+            return false;}
+        if(document.forms[0].userAge.value < 18 || document.forms[0].userAge.value > 100){
+            alert("Age is less than 18. You do not have access.");
+            return false;}
+            {alert("Name and age are valid.");
+            return true;}
+        $(document).ready(function(){
+            $('#more').click(function(){
+                $("#details").toggle();
+            });
+        });
+    </script>
+    
+        <h1>Photo Slideshow</h1>
+        <div class="fotorama" data-autoplay="true">
+            <img src="0794DD6E-ECEF-416C-98F6-52CE3081299F.JPG" data-caption="ADPi Bid Day" alt="3 sorority girls standing in front of lawn letters">
+            <img src="2DC2D2AD-B887-4F33-A6CA-01D13B50D555.JPG" data-caption="ADPi Bid Day" alt="3 sorority girls standing in front of Colden Pond">
+            <img src="311C746A-F7D4-4A08-8140-9C2A36912457.JPG" data-caption="ADPi Bid Day" alt="sorority girl dancing in front of lawn letters">
+            <img src="5519E461-99CE-432D-976F-875CA79032BD.JPG" data-caption="ADPi Bid Day" alt="sorority girl dancing  in front of Colden Pond">
+            <img src="E0CF7BD0-3C10-4E78-A49E-B68D14EB1E4D%20(1).JPG" data-caption="Starbucks" alt="Girl drinking Starbucks">
+            <img src="F4664497-E6EA-4F2C-AA42-FCCB53331C8A.JPG" data-caption="ADPi Bid Day" alt="2 sorority girls posing in front of Colden Pond">
+        </div>
+    
 </body> 
 </html> 
