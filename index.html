@@ -48,22 +48,23 @@
     function validateForm() {
         if(document.forms[0].userName.value == ""){
             alert("Name field cannot be empty");
-            return false;}}
+            return false;}
         if(document.forms[0].userCity.value == ""){
             alert("City field cannot be empty");
             return false;}
         if(document.forms[0].userAge.value < 18 || document.forms[0].userAge.value > 100){
             alert("Age is less than 18. You do not have access.");
             return false;}
-            {alert("Name and age are valid.");
-            return true;}
+        alert("Name and age are valid.");
+        return true;}
         $(document).ready(function(){
             $('#more').click(function(){
                 $("#details").toggle();
             });
         });
+        
     </script>
-    
+
         <h1>Photo Slideshow</h1>
         <div class="fotorama" data-autoplay="true">
             <img src="0794DD6E-ECEF-416C-98F6-52CE3081299F.JPG" data-caption="ADPi Bid Day" alt="3 sorority girls standing in front of lawn letters">
